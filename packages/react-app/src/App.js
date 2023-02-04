@@ -1,8 +1,13 @@
 import React from "react";
 import "./index.css";
 import styles from "./styles";
+import { useEthers } from "@usedapp/core";
+import Exchange from "./components/Exchange";
+import Loader from "./components/Loader";
 
 const App = () => {
+  const { account } = useEthers();
+
   return (
     <div className={styles.container}>
       <div className={styles.innerContainer}>
@@ -17,7 +22,17 @@ const App = () => {
             <div className={styles.exchangeBox}>
               <div className="pink_gradient" />
               <div className={styles.exchange}>
-
+                <p className="text-white">
+                  {account ? (
+                    poolsLoading ? (
+                      <Loader />
+                    ) : (
+                      <Exchange />
+                    )
+                  ) : (
+                    <Loader />
+                  )}
+                </p>
               </div>
               <div className="blue_gradient" />
             </div>
