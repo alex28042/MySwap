@@ -7,6 +7,7 @@ import Loader from "./components/Loader";
 
 const App = () => {
   const { account } = useEthers();
+  const poolsLoading = false;
 
   return (
     <div className={styles.container}>
@@ -25,12 +26,12 @@ const App = () => {
                 <p className="text-white">
                   {account ? (
                     poolsLoading ? (
-                      <Loader />
+                      <Loader title="Loading pools, please wait!" />
                     ) : (
                       <Exchange />
                     )
                   ) : (
-                    <Loader />
+                    <Loader title="Please connect your wallet" />
                   )}
                 </p>
               </div>
