@@ -29,6 +29,21 @@ function AmountIn() {
             }`}
           />
         </button>
+        {showList && (
+          <ul className={styles.currencyList}>
+            {[
+              { token: "ETH", tokenName: "ETH" },
+              { token: "Jsm", tokenName: "jsm" },
+            ].map(({ token, tokenName }, index) => (
+              <li
+                key={index}
+                className={`${styles.currencyListItem} ${
+                  true ? "bg-site-dim2" : ""
+                } cursor-pointer`}
+              ></li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
