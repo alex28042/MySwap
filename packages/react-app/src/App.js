@@ -4,6 +4,7 @@ import styles from "./styles";
 import { useEthers } from "@usedapp/core";
 import Exchange from "./components/Exchange";
 import Loader from "./components/Loader";
+import WalletButton from "./components/WalletButton";
 
 const App = () => {
   const { account } = useEthers();
@@ -13,8 +14,7 @@ const App = () => {
     <div className={styles.container}>
       <div className={styles.innerContainer}>
         <header className={styles.header}>
-          <img />
-          Wallet Button
+          <WalletButton />
         </header>
         <div className={styles.exchangeContainer}>
           <h1 className={styles.headTitle}>MyCryptoSwap</h1>
@@ -23,17 +23,15 @@ const App = () => {
             <div className={styles.exchangeBox}>
               <div className="pink_gradient" />
               <div className={styles.exchange}>
-                <p className="text-white">
-                  {account ? (
-                    poolsLoading ? (
-                      <Loader title="Loading pools, please wait!" />
-                    ) : (
-                      <Exchange />
-                    )
+                {account ? (
+                  poolsLoading ? (
+                    <Loader title="Loading pools, please wait!" />
                   ) : (
-                    <Loader title="Please connect your wallet" />
-                  )}
-                </p>
+                    <Exchange />
+                  )
+                ) : (
+                  <Loader title="Please connect your wallet" />
+                )}
               </div>
               <div className="blue_gradient" />
             </div>
