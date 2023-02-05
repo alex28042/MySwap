@@ -5,7 +5,7 @@ import { useEthers } from "@usedapp/core";
 import Exchange from "./components/Exchange";
 import Loader from "./components/Loader";
 import WalletButton from "./components/WalletButton";
-import { usePools } from "./hooks"
+import usePools from "./hooks/usePools";
 
 const App = () => {
   const { account } = useEthers();
