@@ -22,7 +22,7 @@ const App = () => {
           <p className={styles.subTitle}>Exchange tokens in seconds</p>
           <div className={styles.exchangeBoxWrapper}>
             <div className={styles.exchangeBox}>
-              <div className="pink_gradient" />
+              <div className="purple_gradient" />
               <div className={styles.exchange}>
                 {account ? (
                   loading ? (
